@@ -73,7 +73,7 @@ function coordSync(coord) {
 
 function markVerticalLine(coord) {
   let x = coord[0];
-  let [ yStart, yEnd ] = [ coord[1], coord[3] ].sort();
+  let [ yStart, yEnd ] = [ coord[1], coord[3] ].sort((a, b) =>  a - b);
  
   for (let idx = yStart; idx <= yEnd; idx += 1) {
     let curr = thermalGrid[idx][x];
@@ -83,7 +83,7 @@ function markVerticalLine(coord) {
 
 function markHorizLine(coord) {
   let y = coord[1];
-  let [ xStart, xEnd ] = [ coord[0], coord[2] ].sort();
+  let [ xStart, xEnd ] = [ coord[0], coord[2] ].sort((a, b) =>  a - b);
   
   for (let idx = xStart; idx <= xEnd; idx += 1) {
     let curr = thermalGrid[y][idx];
